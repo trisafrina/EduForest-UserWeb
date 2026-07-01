@@ -12,12 +12,20 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
+<<<<<<< HEAD
     $table->id();
     $table->string('name');
     $table->string('email')->unique();
     $table->timestamp('email_verified_at')->nullable();
     $table->string('password');
     $table->string('role')->default('client'); // Tambah baris ini
+=======
+    $table->uuid('id')->primary(); 
+    $table->string('name');   
+    $table->string('email')->unique();
+    $table->timestamp('email_verified_at')->nullable();
+    $table->string('password');    
+>>>>>>> 7bb485a8f19c9faa6fab2f862c49a614a8b99b29
     $table->rememberToken();
     $table->timestamps();
 });
@@ -47,4 +55,8 @@ return new class extends Migration
         Schema::dropIfExists('password_reset_tokens');
         Schema::dropIfExists('sessions');
     }
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> 7bb485a8f19c9faa6fab2f862c49a614a8b99b29

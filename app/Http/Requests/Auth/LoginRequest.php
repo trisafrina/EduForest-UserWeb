@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Auth;
 
+<<<<<<< HEAD
 use Illuminate\Auth\Events\Lockout;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
@@ -16,14 +17,30 @@ class LoginRequest extends FormRequest
     /**
      * Determine if the user is authorized to make this request.
      */
+=======
+use App\Models\User;
+use Illuminate\Auth\Events\Lockout;
+use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\RateLimiter;
+use Illuminate\Support\Str;
+use Illuminate\Validation\ValidationException;
+
+class LoginRequest extends FormRequest
+{
+>>>>>>> 7bb485a8f19c9faa6fab2f862c49a614a8b99b29
     public function authorize(): bool
     {
         return true;
     }
 
+<<<<<<< HEAD
     /**
      * Get the validation rules that apply to the request.
      */
+=======
+>>>>>>> 7bb485a8f19c9faa6fab2f862c49a614a8b99b29
     public function rules(): array
     {
         return [
@@ -32,13 +49,17 @@ class LoginRequest extends FormRequest
         ];
     }
 
+<<<<<<< HEAD
     /**
      * Attempt to authenticate the request's credentials.
      */
+=======
+>>>>>>> 7bb485a8f19c9faa6fab2f862c49a614a8b99b29
     public function authenticate(): void
     {
         $this->ensureIsNotRateLimited();
 
+<<<<<<< HEAD
         $email = $this->string('email')->trim();
         $password = $this->string('password');
 
@@ -106,6 +127,25 @@ class LoginRequest extends FormRequest
     /**
      * Ensure the login request is not rate limited.
      */
+=======
+        // Cari user ikut emel dalam table public.users
+        $user = User::where('email', $this->email)->first();
+
+        // Sahkan password guna Hash::check yang selamat
+        if ($user && Hash::check($this->password, $user->password)) {
+            Auth::login($user, $this->boolean('remember'));
+            RateLimiter::clear($this->throttleKey());
+            return;
+        }
+
+        RateLimiter::hit($this->throttleKey());
+
+        throw ValidationException::withMessages([
+            'email' => __('auth.failed'),
+        ]);
+    }
+
+>>>>>>> 7bb485a8f19c9faa6fab2f862c49a614a8b99b29
     public function ensureIsNotRateLimited(): void
     {
         if (! RateLimiter::tooManyAttempts($this->throttleKey(), 5)) {
@@ -123,9 +163,12 @@ class LoginRequest extends FormRequest
         ]);
     }
 
+<<<<<<< HEAD
     /**
      * Get the rate limiting throttle key for the request.
      */
+=======
+>>>>>>> 7bb485a8f19c9faa6fab2f862c49a614a8b99b29
     public function throttleKey(): string
     {
         return Str::transliterate(Str::lower($this->string('email')).'|'.$this->ip());

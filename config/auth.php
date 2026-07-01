@@ -42,12 +42,16 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+<<<<<<< HEAD
 
         'admin' => [
         'driver' => 'session',
         'provider' => 'admins',
     ],
 ],
+=======
+    ],
+>>>>>>> 7bb485a8f19c9faa6fab2f862c49a614a8b99b29
 
     /*
     |--------------------------------------------------------------------------
@@ -72,10 +76,17 @@ return [
             'model' => env('AUTH_MODEL', User::class),
         ],
 
+<<<<<<< HEAD
         'admins' => [
         'driver' => 'eloquent',
         'model' => App\Models\Admin::class,
     ],
+=======
+        // 'users' => [
+        //     'driver' => 'database',
+        //     'table' => 'users',
+        // ],
+>>>>>>> 7bb485a8f19c9faa6fab2f862c49a614a8b99b29
     ],
 
     /*

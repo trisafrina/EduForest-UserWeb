@@ -12,6 +12,7 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
+<<<<<<< HEAD
         
         // Register our custom 'admin' middleware alias properly
         $middleware->alias([
@@ -21,4 +22,12 @@ return Application::configure(basePath: dirname(__DIR__))
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
+=======
+        // 💬 Dah kosong balik! Kita dah tak pakai middleware tu
+    })
+    ->withExceptions(function (Exceptions $exceptions): void {
+        $exceptions->shouldRenderJsonWhen(
+            fn (Request $request) => $request->is('api/*'),
+        );
+>>>>>>> 7bb485a8f19c9faa6fab2f862c49a614a8b99b29
     })->create();
