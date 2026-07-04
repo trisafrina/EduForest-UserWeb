@@ -22,27 +22,27 @@ class PaymentController extends Controller
 
     
     public function showPayment($reference_number)
-{
-    $booking = DB::table('bookings')->where('reference_number', $reference_number)->first();
-
-    if (!$booking) {
-        abort(404, 'Maklumat tempahan tidak ditemui.');
-    }
-
-    $package = DB::table('packages')->where('id', $booking->package_id)->first();
-
-    $packageName = $package->name ?? $package->package_name ?? $this->resolvePackageName($booking->package_id);
-
-    return view('payment.instruction', compact('booking', 'package', 'packageName'));
-}
-
-    
-    public function submitReceipt(Request $request, $reference_number)
     {
         $booking = DB::table('bookings')->where('reference_number', $reference_number)->first();
         if (!$booking) abort(404, 'Maklumat tempahan tidak ditemui.');
 
-        $receiptUrl = 'pending_upload_local';
+        
+        $packageName = $this->resolvePackageName($booking->package_id);
+
+        return view('payment.instruction', compact('booking', 'packageName'));
+    }
+
+    
+    public function submitReceipt(Request $request, $reference_number)
+    {
+        $request->validate([
+            'payment_receipt' => ['required', 'file', 'mimes:pdf,jpg,jpeg,png', 'max:5120'],
+        ]);
+
+        $booking = DB::table('bookings')->where('reference_number', $reference_number)->first();
+        if (!$booking) abort(404, 'Maklumat tempahan tidak ditemui.');
+
+        $receiptUrl = null;
 
         
         if ($request->hasFile('payment_receipt')) {
@@ -65,26 +65,43 @@ class PaymentController extends Controller
 
             if ($uploadResult['ok']) {
                 $receiptUrl = $uploadResult['public_url'];
+            } else {
+                return back()->withErrors([
+                    'payment_receipt' => 'Upload resit gagal: ' . ($uploadResult['error'] ?? 'Sila cuba lagi.'),
+                ])->withInput();
             }
         }
-        
 
-        
-        DB::table('payments')->insert([
-            'booking_id'  => $booking->id,
-            'receipt_url' => $receiptUrl,
-            'status'      => 'pending',
-            'created_at'  => now(),
-        ]);
+        if (! $receiptUrl) {
+            return back()->withErrors([
+                'payment_receipt' => 'Resit tidak berjaya dimuat naik. Sila pilih fail dan cuba lagi.',
+            ])->withInput();
+        }
 
-        
-        
-            
-            
+        $existingPayment = DB::table('payments')
+            ->where('booking_id', $booking->id)
+            ->first();
+
+        if ($existingPayment) {
+            DB::table('payments')
+                ->where('id', $existingPayment->id)
+                ->update([
+                    'receipt_url' => $receiptUrl,
+                    'status' => 'pending',
+                    'rejection_reason' => null,
+                ]);
+        } else {
+            DB::table('payments')->insert([
+                'booking_id'  => $booking->id,
+                'receipt_url' => $receiptUrl,
+                'status'      => 'pending',
+                'created_at'  => now(),
+            ]);
+        }
 
         return redirect()
-    ->route('payment.instruction', $reference_number)
-    ->with('payment_success', true);
+            ->route('payment.instruction', $reference_number)
+            ->with('receipt_submitted', true);
     }
 
     

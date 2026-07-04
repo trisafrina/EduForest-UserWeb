@@ -6,7 +6,7 @@
 
     <div class="card-premium" id="calendar-sec">
         <h2 class="card-title">Manage Calendar Availability</h2>
-        <p class="card-subtitle">Kawal selia sekatan kalendar dinamik untuk paparan aplikasi klien.</p>
+        <p class="card-subtitle">Manage dynamic calendar restrictions for the client application.</p>
 
         <div class="grid-premium">
             <form action="{{ route('admin.slots.store') }}" method="POST" class="sub-card-form">

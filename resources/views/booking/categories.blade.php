@@ -138,7 +138,7 @@
                 <div class="space-y-6 rounded-[28px] border border-white/70 bg-white/80 p-6 shadow-[0_24px_70px_rgba(62,111,82,0.12)] backdrop-blur-xl">
 
                     <section>
-                        <h2 class="text-lg font-extrabold text-slate-950">1. Choose Date</h2>
+                        <h2 class="text-lg font-extrabold text-slate-950">1. CHOOSE DATE</h2>
 
                         <div class="mt-4 rounded-3xl border border-[#d7eadf] bg-white/80 p-5">
                             <div class="mb-5 flex items-center justify-between">
@@ -180,7 +180,7 @@
                     </section>
 
                     <section>
-                        <h2 class="text-lg font-extrabold text-slate-950">2. Choose Category</h2>
+                        <h2 class="text-lg font-extrabold text-slate-950">2. CHOOSE CATEGORY</h2>
                         <p class="mt-1 text-sm font-medium text-slate-500">Select a category that best describes your group.</p>
 
                         <div class="mt-4 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
@@ -205,7 +205,7 @@
                     </section>
 
                     <section>
-                        <h2 class="text-lg font-extrabold text-slate-950">3. Choose Package</h2>
+                        <h2 class="text-lg font-extrabold text-slate-950">3. CHOOSE PACKAGES</h2>
                         <p class="mt-1 text-sm font-medium text-slate-500">Select a package that suits your plan.</p>
 
                         <div class="mt-4 grid gap-4 xl:grid-cols-3">
@@ -249,7 +249,7 @@
                     </section>
 
                     <section>
-                        <h2 class="text-lg font-extrabold text-slate-950">4. Booking Details</h2>
+                        <h2 class="text-lg font-extrabold text-slate-950">4. BOOKING DETAILS</h2>
 
                         <div class="mt-4 grid gap-4 md:grid-cols-2">
                             <div>
@@ -296,7 +296,7 @@
                 </div>
 
                 <aside class="self-start rounded-[28px] border border-white/70 bg-white/80 p-6 shadow-[0_24px_70px_rgba(62,111,82,0.12)] backdrop-blur-xl">
-                    <h2 class="text-lg font-extrabold text-slate-950">Booking Detail</h2>
+                    <h2 class="text-lg font-extrabold text-slate-950">Booking Summary</h2>
 
                     <div class="mt-6 space-y-5 text-sm">
                         <div>

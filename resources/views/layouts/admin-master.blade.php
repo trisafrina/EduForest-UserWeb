@@ -16,96 +16,157 @@
 
         .dashboard-container { display: flex; height: 100vh; width: 100vw; }
 
-        .left-column {
-        width: 18rem;
-        display: flex;
-        flex-direction: column;
-        background-color: #c9ead6;
-        height: 100%;
 
-}
-        .logo-area {
-        height: 110px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 1.5rem 1rem 0.75rem;
-        background-color: #c9ead6;
-}
-
-        .sidebar-premium {
-    background-color: #c9ead6;
-    color: #20334a;
-    flex-direction: column;
-    display: flex;
-    flex: 1;
-    border-radius: 0rem;
-    padding: 2rem 1rem;
-    justify-content: space-between;
-    overflow-y: auto;
-    border: 1px solid rgba(255,255,255,0.65);
-    box-shadow: 0 24px 70px rgba(47,125,79,0.16);
+.left-column {
+    width: 245px !important;
+    min-width: 245px !important;
+    max-width: 245px !important;
+    height: 100vh !important;
+    background:
+        radial-gradient(circle at 28% 8%, rgba(255,255,255,0.9), transparent 34%),
+        linear-gradient(180deg, #d8f3e4 0%, #c9eed9 48%, #eefaf3 100%) !important;
+    border-right: 0 !important;
+    box-shadow: 18px 0 45px rgba(45, 106, 79, 0.12) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
 }
 
-.nav-container { display: flex; flex-direction: column; gap: 0.5rem; width: 100%; }
+.logo-area {
+    width: 100% !important;
+    min-height: 210px !important;
+    padding: 2rem 0.8rem 1.2rem !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+.logo-area img {
+    display: block !important;
+    width: 165px !important;
+    max-width: 165px !important;
+    height: auto !important;
+    object-fit: contain !important;
+    margin: 0 auto !important;
+    filter: drop-shadow(0 12px 18px rgba(15, 23, 42, 0.12)) !important;
+}
+
+.sidebar-premium {
+    flex: 1 !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    padding: 0.8rem 0.9rem 1.3rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+}
+
+.nav-container {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.72rem !important;
+    width: 100% !important;
+    border: 0 !important;
+}
 
 .nav-item {
-    display: flex;
-    align-items: center;
-    gap: 0.65rem;
-    padding: 0.875rem 1.25rem;
-    color: #20334a;
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 700;
-    border-radius: 999px;
-    transition: all 0.2s ease;
-    cursor: pointer;
-    letter-spacing: 0.01em;
-}
-
-.nav-item:hover,
-.nav-item.active {
-    background: rgba(255, 255, 255, 0.78);
-    color: #0f172a;
-    font-weight: 800;
-    transform: translateX(4px);
-    box-shadow: 0 10px 26px rgba(47,125,79,0.13);
+    width: 100% !important;
+    min-height: 52px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.78rem !important;
+    padding: 0 0.9rem !important;
+    border-radius: 18px !important;
+    border: 1px solid rgba(255, 255, 255, 0.52) !important;
+    background: rgba(255, 255, 255, 0.43) !important;
+    color: #173b2b !important;
+    text-decoration: none !important;
+    font-size: 0.82rem !important;
+    font-weight: 900 !important;
+    letter-spacing: 0 !important;
+    box-shadow: 0 10px 24px rgba(45, 106, 79, 0.075) !important;
+    transition: all 0.22s ease !important;
 }
 
 .nav-item i {
-    width: 1.1rem;
-    text-align: center;
-    color: #2f7d4f;
+    width: 20px !important;
+    min-width: 20px !important;
+    text-align: center !important;
+    color: #2f855a !important;
+    font-size: 0.95rem !important;
+}
+
+.nav-item span {
+    display: inline-block !important;
+    white-space: normal !important;
+    line-height: 1.15 !important;
+}
+
+.nav-item:hover {
+    transform: translateY(-1px) !important;
+    background: rgba(255, 255, 255, 0.78) !important;
+    box-shadow: 0 14px 30px rgba(45, 106, 79, 0.14) !important;
+}
+
+.nav-item.active {
+    background: linear-gradient(135deg, #2f855a 0%, #246b47 100%) !important;
+    color: #ffffff !important;
+    border-color: rgba(255, 255, 255, 0.42) !important;
+    box-shadow: 0 18px 36px rgba(47, 133, 90, 0.34) !important;
+}
+
+.nav-item.active i {
+    color: #ffffff !important;
 }
 
 .logout-container {
-    padding-top: 1rem;
-    border-top: 1px solid rgba(47,125,79,0.14);
-    margin-top: 1rem;
+    margin-top: 1rem !important;
+    padding-top: 1rem !important;
+    border-top: 0 !important;
+}
+
+.logout-container form {
+    margin: 0 !important;
 }
 
 .logout-btn {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    gap: 0.65rem;
-    text-align: left;
-    background: rgba(255,255,255,0.58);
-    border: none;
-    color: #20334a;
-    font-size: 0.9rem;
-    font-weight: 800;
-    cursor: pointer;
-    padding: 0.75rem 1.25rem;
-    border-radius: 999px;
-    transition: all 0.2s;
+    width: 100% !important;
+    min-height: 52px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.78rem !important;
+    padding: 0 0.9rem !important;
+    border-radius: 18px !important;
+    border: 1px solid rgba(254, 202, 202, 0.85) !important;
+    background: rgba(255, 255, 255, 0.82) !important;
+    color: #991b1b !important;
+    font-size: 0.84rem !important;
+    font-weight: 900 !important;
+    cursor: pointer !important;
+    box-shadow: 0 16px 34px rgba(185, 28, 28, 0.14) !important;
+    transition: all 0.22s ease !important;
+}
+
+.logout-btn i {
+    color: #b91c1c !important;
+    width: 20px !important;
+    text-align: center !important;
 }
 
 .logout-btn:hover {
-    background: #ffffff;
-    color: #b91c1c;
-    box-shadow: 0 10px 26px rgba(47,125,79,0.13);
+    transform: translateY(-1px) !important;
+    background: #fff5f5 !important;
+    box-shadow: 0 20px 40px rgba(185, 28, 28, 0.22) !important;
+}
+
+.left-column a,
+.left-column a:visited,
+.left-column a:hover {
+    text-decoration: none !important;
 }
         .right-column { flex: 1; display: flex; flex-direction: column; height: 100%; overflow: hidden; }
 
@@ -227,7 +288,7 @@
         <div class="right-column">
             <header class="header-premium">
                 <h1 class="header-title">
-                    @yield('page-title', 'Welcome back, Admin')@if(!View::hasSection('page-title')), <span class="header-user">{{ Auth::user()->full_name ?? session('admin_name', 'Admin') }}</span>@endif
+                    @yield('page-title', 'Welcome Back, Admin')@if(!View::hasSection('page-title')), <span class="header-user">{{ Auth::user()->full_name ?? session('admin_name', 'Admin') }}</span>@endif
                 </h1>
                 <span class="header-date">{{ now()->format('l, d F Y') }}</span>
             </header>

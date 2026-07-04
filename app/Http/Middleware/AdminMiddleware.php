@@ -8,13 +8,13 @@ use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Auth;
 
 class AdminMiddleware
-
+{
     public function handle(Request $request, Closure $next): Response
     {
-
         if (Auth::check() && Auth::user()->is_admin) {
             return $next($request);
         }
 
         abort(403, 'Access denied. This system is strictly reserved for Admin use only.');
     }
+}

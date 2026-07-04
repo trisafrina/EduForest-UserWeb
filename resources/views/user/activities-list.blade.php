@@ -86,7 +86,7 @@
 
                 <section>
                     <div class="mb-6">
-                        <h1 class="text-lg font-extrabold uppercase tracking-wide text-[#2f7d4f]">
+                        <h1 class="text-lg font-extrabold uppercase tracking-wide text-[#000000]">
                             All Activities
                         </h1>
                         <p class="mt-2 text-sm font-medium text-slate-500">

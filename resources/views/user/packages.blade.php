@@ -83,7 +83,7 @@
         <main class="mx-auto max-w-7xl px-5 py-10 lg:px-8">
             <section>
                 <div class="mb-5">
-                    <h2 class="text-lg font-extrabold uppercase tracking-wide text-[#2f7d4f]">
+                    <h2 class="text-lg font-extrabold uppercase tracking-wide text-[#000000]">
                         1. Select Category
                     </h2>
                     <p class="mt-1 text-sm font-medium text-slate-500">
@@ -125,7 +125,7 @@
             <section class="mt-10">
                 <div class="mb-5 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
                     <div>
-                        <h2 class="text-lg font-extrabold uppercase tracking-wide text-[#2f7d4f]">
+                        <h2 class="text-lg font-extrabold uppercase tracking-wide text-[#000000]">
                             2. Select Package
                         </h2>
                         <p class="mt-1 text-sm font-medium text-slate-500">

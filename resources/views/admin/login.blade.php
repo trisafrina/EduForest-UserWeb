@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <div class="min-h-screen flex flex-col items-center justify-center bg-gray-100 px-4" style="background-color: #f3f4f6;">
+    <div class="min-h-screen flex flex-col items-center justify-center px-4 bg-transparent">
         <div class="w-full max-w-md bg-white p-8 border border-gray-100 text-center" style="background-color: white; border-radius: 2rem; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1); width: 100%; max-width: 28rem; margin: auto; padding: 2rem;">
             
             <div class="flex justify-center mb-4">
@@ -33,7 +33,7 @@
             autofocus
             placeholder="Enter your email address"
 
-            class="w-full rounded-2xl border border-gray-200 bg-gray-50
+            class="w-full rounded-2xl border border-gray-200 bg-white
                    px-5 py-4 text-sm
                    focus:border-[#355E3B]
                    focus:ring-[#355E3B]">
@@ -50,7 +50,7 @@
             required
             placeholder="Enter your password"
 
-            class="w-full rounded-2xl border border-gray-200 bg-gray-50
+            class="w-full rounded-2xl border border-gray-200 bg-white
                    px-5 py-4 text-sm
                    focus:border-[#355E3B]
                    focus:ring-[#355E3B]">
