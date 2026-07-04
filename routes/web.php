@@ -16,6 +16,22 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ActivityController::class, 'index'])->name('homepage');
+// TEMPORARY DEBUG ROUTE - REMOVE AFTER TROUBLESHOOTING
+Route::get('/__debug-env-check-9f3k', function () {
+    $url = env('SUPABASE_URL');
+    $key = env('SUPABASE_KEY');
+    $serviceKey = env('SUPABASE_SERVICE_ROLE_KEY');
+
+    return response()->json([
+        'SUPABASE_URL_raw' => $url,
+        'SUPABASE_URL_length' => $url ? strlen($url) : 0,
+        'SUPABASE_KEY_is_set' => !empty($key),
+        'SUPABASE_KEY_length' => $key ? strlen($key) : 0,
+        'SUPABASE_SERVICE_ROLE_KEY_is_set' => !empty($serviceKey),
+        'APP_ENV' => env('APP_ENV'),
+        'APP_URL' => env('APP_URL'),
+    ]);
+});
 
 Route::get('/home', function () {
     return redirect()->route('booking.categories');
