@@ -350,6 +350,97 @@
     </div>
 </section>
 
+<section class="mx-auto max-w-7xl px-6 pb-16">
+    <div class="flex justify-center">
+        <button type="button" onclick="openProjectInfoModal()"
+            class="rounded-full bg-[#2d6a4f] px-8 py-4 text-sm font-extrabold uppercase tracking-[0.18em] text-white shadow-[0_18px_40px_rgba(45,106,79,0.28)] transition hover:-translate-y-0.5 hover:bg-[#24563f]">
+            About This Project
+        </button>
+    </div>
+</section>
+
+<div id="projectInfoModal"
+    class="fixed inset-0 z-[9999] hidden items-center justify-center bg-slate-950/45 px-5 py-8 backdrop-blur-sm">
+    <div class="relative max-h-[90vh] w-full max-w-4xl overflow-y-auto rounded-[32px] bg-white p-8 shadow-[0_30px_90px_rgba(15,23,42,0.25)] md:p-10">
+        <button type="button" onclick="closeProjectInfoModal()"
+            class="absolute right-5 top-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#edf7f1] text-2xl font-bold text-[#2d6a4f] transition hover:bg-[#d8efe2]">
+            &times;
+        </button>
+
+        <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-[#2d6a4f]">Apps Info</p>
+        <h2 class="mt-3 text-3xl font-black text-[#07111f]">About This Project</h2>
+        <div class="mt-4 h-2 w-20 rounded-full bg-[#0b6b1b]"></div>
+
+        <div class="mt-8 space-y-5 text-[15px] leading-8 text-slate-600">
+            <div class="rounded-3xl border border-[#d8efe2] bg-[#f4fbf7] p-5">
+                <h3 class="text-lg font-extrabold text-[#2d6a4f]">Project Overview</h3>
+                <p class="mt-2">
+                    Edu-Forest Booking Management System (EFBMS) is a web-based system developed to improve the booking process at Edu-Forest Adventures, an eco-tourism destination managed by UPSI. The system provides an online platform that enables visitors to browse activity packages, check availability, and make bookings conveniently, while allowing administrators to manage bookings and customer records more efficiently.
+                </p>
+                <p class="mt-4">
+                    The system is developed using modern web technologies to provide a user-friendly interface for both visitors and administrators. By digitizing the booking process, EFBMS is expected to improve communication between customers and the management while enhancing the overall efficiency of booking operations.
+                </p>
+            </div>
+
+            <div class="grid gap-4 md:grid-cols-2">
+                <div class="rounded-3xl border border-slate-100 bg-white p-5 shadow-sm">
+                    <p class="text-xs font-extrabold uppercase tracking-[0.16em] text-slate-400">Subject</p>
+                    <p class="mt-2 font-bold text-[#07111f]">DTD 3053</p>
+                    <p class="text-slate-500">Web Programming for Information System</p>
+                </div>
+
+                <div class="rounded-3xl border border-slate-100 bg-white p-5 shadow-sm">
+                    <p class="text-xs font-extrabold uppercase tracking-[0.16em] text-slate-400">Lecturer</p>
+                    <p class="mt-2 font-bold text-[#07111f]">Profesor Madya Dr. Aslina binti Saad</p>
+                </div>
+            </div>
+
+            <div class="rounded-3xl border border-slate-100 bg-white p-5 shadow-sm">
+                <p class="text-xs font-extrabold uppercase tracking-[0.16em] text-slate-400">Team Members</p>
+                <ul class="mt-3 space-y-2 font-bold text-[#07111f]">
+                    <li>AFRINA BATRISYIA BINTI NOR AZLI (D20231106467)</li>
+                    <li>AZWALEZA BINTI AZLAN (D20231106532)</li>
+                    <li>HUMAIRAH QAIREENA BINTI ABDULLAH (D20231106526)</li>
+                </ul>
+            </div>
+
+            <div class="rounded-3xl border border-[#d8efe2] bg-[#f4fbf7] p-6 text-center">
+                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#2d6a4f]">Faculty</p>
+                <p class="mt-2 text-lg font-black text-[#07111f]">Faculty Computing and Meta Technology</p>
+                <p class="mt-3 text-sm font-bold text-[#2d6a4f]">Copyright @ Faculty Computing and Meta Technology</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openProjectInfoModal() {
+        const modal = document.getElementById('projectInfoModal');
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeProjectInfoModal() {
+        const modal = document.getElementById('projectInfoModal');
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            closeProjectInfoModal();
+        }
+    });
+
+    document.getElementById('projectInfoModal').addEventListener('click', function(event) {
+        if (event.target === this) {
+            closeProjectInfoModal();
+        }
+    });
+</script>
+
     </main>
 
     <script>
@@ -413,5 +504,32 @@
         });
     </script>
 
+<script>
+    function openProjectInfo() {
+        const modal = document.getElementById('projectInfoModal');
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeProjectInfo() {
+        const modal = document.getElementById('projectInfoModal');
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            closeProjectInfo();
+        }
+    });
+
+    document.getElementById('projectInfoModal').addEventListener('click', function(event) {
+        if (event.target === this) {
+            closeProjectInfo();
+        }
+    });
+</script>
 </body>
 </html>
