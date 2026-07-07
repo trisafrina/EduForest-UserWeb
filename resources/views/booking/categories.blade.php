@@ -26,33 +26,40 @@
     $calendarStatuses = $dateStatuses->merge($slotStatuses);
 
     $packageData = collect($packages ?? [])->map(function ($package) {
-        $name = strtoupper($package->name ?? $package->package_name ?? 'PACKAGE');
+    $name = strtoupper($package->name ?? $package->package_name ?? 'PACKAGE');
 
-        $durationDays = $package->duration_days ?? match (true) {
-            str_contains($name, 'A') => 1,
-            str_contains($name, 'B') => 2,
-            str_contains($name, 'C') => 3,
-            default => 1,
-        };
+    $durationDays = match (true) {
+        str_contains($name, 'PACKAGE A') || $name === 'A' => 1,
+        str_contains($name, 'PACKAGE B') || $name === 'B' => 2,
+        str_contains($name, 'PACKAGE C') || $name === 'C' => 3,
+        default => 1,
+    };
 
-        $activities = collect(explode(',', $package->activities ?? ''))
-            ->map(fn ($item) => trim($item))
-            ->filter()
-            ->values();
+    $durationLabel = match ($durationDays) {
+        1 => '1 Day',
+        2 => '2 Days 1 Night',
+        3 => '3 Days 2 Nights',
+        default => '1 Day',
+    };
 
-        return [
-            'id' => $package->id,
-            'name' => $name,
-            'subtitle' => $package->subtitle ?? $package->description ?? '',
-            'activities' => $activities,
-            'duration_days' => $durationDays,
-            'duration_label' => $durationDays === 1 ? '1 Day' : ($durationDays === 2 ? '2 Days 1 Night' : '3 Days 2 Nights'),
-            'price_upsi' => $package->price_upsi ?? 0,
-            'price_gov' => $package->price_gov ?? 0,
-            'price_public' => $package->price_public ?? 0,
-            'price_international' => $package->price_international ?? 0,
-        ];
-    })->values();
+    $activities = collect(explode(',', $package->activities ?? ''))
+        ->map(fn ($item) => trim($item))
+        ->filter()
+        ->values();
+
+    return [
+        'id' => $package->id,
+        'name' => $name,
+        'subtitle' => $package->subtitle ?? $package->description ?? '',
+        'activities' => $activities,
+        'duration_days' => $durationDays,
+        'duration_label' => $durationLabel,
+        'price_upsi' => $package->price_upsi ?? 0,
+        'price_gov' => $package->price_gov ?? 0,
+        'price_public' => $package->price_public ?? 0,
+        'price_international' => $package->price_international ?? 0,
+    ];
+})->values();
 
     $categories = [
         'upsi' => [
